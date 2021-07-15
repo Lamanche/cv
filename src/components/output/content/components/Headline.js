@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   width: 100%;
+  margin-bottom: 1rem;
   display: flex;
   align-items: center;
 `;
@@ -13,7 +14,7 @@ const Icon = styled.div`
 
 const NameWrapper = styled.div`
   width: 100%;
-  border-bottom: 1px solid green;
+  border-bottom: 2px solid green;
 `;
 
 const Name = styled.h1`
