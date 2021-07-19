@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { DataContext } from "../../context/DataContext";
 import Header from "./content/Header";
 
 const Wrapper = styled.div`
@@ -10,9 +11,11 @@ const Wrapper = styled.div`
 `;
 
 const OutputLeft = () => {
+  const [userData] = useContext(DataContext);
+
   return (
     <Wrapper>
-      <Header />
+      <Header data={userData} />
     </Wrapper>
   );
 };

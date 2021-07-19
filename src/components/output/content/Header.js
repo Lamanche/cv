@@ -28,12 +28,12 @@ const JobTitle = styled.p`
   margin-bottom: 0;
 `;
 
-const Header = () => {
+const Header = ({ data }) => {
   return (
     <Wrapper>
       <Image src='' alt='profile-pic'></Image>
-      <Name>ANDRES SIIRAK</Name>
-      <JobTitle>Web developer and design</JobTitle>
+      <Name>{data?.personal.name}</Name>
+      <JobTitle>{data?.personal.occupation}</JobTitle>
     </Wrapper>
   );
 };
