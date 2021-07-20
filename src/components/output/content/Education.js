@@ -13,8 +13,6 @@ const Education = () => {
   return (
     <Wrapper>
       <Headline icon={<SchoolIcon />} name='HARIDUS' />
-      <TimelineData />
-      <TimelineData />
     </Wrapper>
   );
 };

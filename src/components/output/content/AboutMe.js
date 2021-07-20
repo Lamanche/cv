@@ -10,15 +10,20 @@ const Wrapper = styled.div`
   overflow: hidden;
 `;
 
+const Info = styled.p`
+font-weight: 400;
+font-size: .99rem
+`
+
 const AboutMe = () => {
 const [userData] = useContext(DataContext)
 
   return (
     <Wrapper>
       <Headline icon={<AccountCircleIcon />} name='MINUST' />
-      <p>
+      <Info>
         {userData.about}
-      </p>
+      </Info>
     </Wrapper>
   );
 };

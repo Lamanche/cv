@@ -18,7 +18,7 @@ const NameWrapper = styled.div`
 `;
 
 const Name = styled.h1`
-  font-size: .95rem;
+  font-size: 0.95rem;
   margin: 0;
 `;
 

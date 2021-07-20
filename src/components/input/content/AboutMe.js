@@ -3,7 +3,9 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import { DataContext } from "../../../context/DataContext";
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  margin-bottom: 1rem;
+`;
 
 const InputField = styled(TextField)``;
 

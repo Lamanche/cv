@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { DataContext } from "../../context/DataContext";
+import Contact from "./content/Contact";
 import Header from "./content/Header";
 
 const Wrapper = styled.div`
@@ -16,6 +17,7 @@ const OutputLeft = () => {
   return (
     <Wrapper>
       <Header data={userData} />
+      <Contact data={userData} />
     </Wrapper>
   );
 };

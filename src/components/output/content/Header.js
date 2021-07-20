@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   width: 100%;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   text-align: center;
 `;
 
@@ -26,6 +26,7 @@ const JobTitle = styled.p`
   margin-right: 2rem;
   margin-top: 0.5rem;
   margin-bottom: 0;
+  color: whitesmoke;
 `;
 
 const Header = ({ data }) => {

@@ -76,25 +76,23 @@ const Dot = styled(TimelineDot)`
   }
 `;
 
-const TimelineData = () => {
+const TimelineData = ({ data, index }) => {
   return (
     <Wrapper>
       <TimeLine align='alternate'>
         <TimelineItem>
           <LeftSide>
-            <Title>Tootmistööline</Title>
-            <Year>2001-2014</Year>
+            <Title>{data?.title}</Title>
+            <Year>{data?.year}</Year>
           </LeftSide>
           <TimelineSeparator>
             <Dot />
             <TimelineConnector />
           </TimelineSeparator>
           <RightSide>
-            <Title2>Ettevõte OÜ</Title2>
+            <Title2>{data?.company}</Title2>
             <Description>
-              e eg egege eger gewtheyh uj 6u yhw5gq3 tqth4y w46h u5jw6yh qy
-              yq45y 45yq yq5y q35 qeth sryjs sb ar tharyh ryha rharh arh ahat A
-              RYJ6IKR JT AT A sryh tjtu jt yhrrrr
+              {data?.description}
             </Description>
           </RightSide>
         </TimelineItem>
