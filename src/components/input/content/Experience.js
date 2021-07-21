@@ -4,14 +4,13 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import { DataContext } from "../../../context/DataContext";
 import AddExperience from "./components/AddExperience";
+import uniqid from "uniqid";
 
 const Wrapper = styled.div`
   text-align: center;
 `;
 
-const AddBtn = styled(Fab)`
-
-`
+const AddBtn = styled(Fab)``;
 
 const Experience = () => {
   const [userData, setUserData] = useContext(DataContext);
@@ -22,6 +21,7 @@ const Experience = () => {
       experience: [
         ...prevState.experience,
         {
+          id: uniqid(),
           title: "",
           year: "",
           company: "",
@@ -30,12 +30,13 @@ const Experience = () => {
       ],
     }));
   };
+
   return (
     <Wrapper>
       {userData.experience.map((ex, index) => {
         return (
           <AddExperience
-            key={index}
+            key={ex.id}
             index={index}
             userData={userData}
             setUserData={setUserData}

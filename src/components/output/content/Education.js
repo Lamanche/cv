@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import Headline from "./components/Headline";
 import SchoolIcon from "@material-ui/icons/School";
-import TimelineData from "./components/TimelineData";
 
 const Wrapper = styled.div`
   width: 100%;

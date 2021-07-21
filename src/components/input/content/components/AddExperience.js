@@ -29,7 +29,8 @@ const InputField = styled(TextField)`
 const RemoveBtn = styled(Button)``;
 
 const AddExperience = ({ index, userData, setUserData }) => {
-  const handleChange = (e, index) => {
+  
+    const handleChange = (e, index) => {
     const list = [...userData.experience];
     list[index][e.target.name] = e.target.value;
     setUserData((prevState) => ({
