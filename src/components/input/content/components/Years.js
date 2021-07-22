@@ -14,10 +14,11 @@ const DateInput = styled(KeyboardDatePicker)`
 
   & .MuiOutlinedInput-input {
     padding: 8px 8px;
+    width: 5rem;
   }
 
   & .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
-    border-color: green;
+    border-color: ${(props) => props.theme.green};
     border-width: 2px;
   }
 
@@ -26,18 +27,16 @@ const DateInput = styled(KeyboardDatePicker)`
   }
 
   & .MuiFormLabel-root.Mui-focused {
-    color: green;
+    color: ${(props) => props.theme.darkPurple};
   }
 
   & .MuiOutlinedInput-adornedEnd {
     padding-right: 0;
-}
+  }
 `;
 
 const Years = () => {
-  const [selectedDate, setSelectedDate] = React.useState(
-    new Date()
-  );
+  const [selectedDate, setSelectedDate] = React.useState(new Date());
 
   const handleDateChange = (date) => {
     setSelectedDate(date);

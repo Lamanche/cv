@@ -7,7 +7,20 @@ const Wrapper = styled.div`
   margin-bottom: 1rem;
 `;
 
-const InputField = styled(TextField)``;
+const InputField = styled(TextField)`
+  & .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: ${(props) => props.theme.green};
+    border-width: 2px;
+  }
+
+  & .MuiFormLabel-root.Mui-focused {
+    color: ${(props) => props.theme.darkPurple};
+  }
+
+  & .MuiInputBase-input:focus {
+    background-color: white;
+  }
+`;
 
 const AboutMe = () => {
   const [userData, setUserData] = useContext(DataContext);
@@ -19,7 +32,7 @@ const AboutMe = () => {
   return (
     <Wrapper>
       <InputField
-        label='Minust'
+        label='Iseloomustus'
         name='about'
         variant='outlined'
         onChange={handleChange}

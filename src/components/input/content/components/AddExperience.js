@@ -7,13 +7,14 @@ const Wrapper = styled.div``;
 
 const InputField = styled(TextField)`
   margin-bottom: 0.8rem !important;
+  margin-right: .8rem !important;
 
   & .MuiOutlinedInput-input {
     padding: 8px 8px;
   }
 
   & .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
-    border-color: green;
+    border-color: ${props => props.theme.green};
     border-width: 2px;
   }
 
@@ -22,7 +23,7 @@ const InputField = styled(TextField)`
   }
 
   & .MuiFormLabel-root.Mui-focused {
-    color: green;
+    color: ${props => props.theme.darkPurple};
   }
 `;
 
@@ -76,6 +77,8 @@ const AddExperience = ({ index, userData, setUserData }) => {
         name='description'
         variant='outlined'
         onChange={(e) => handleChange(e, index)}
+        multiline
+        rows={4}
       />
       <RemoveBtn
         variant='contained'

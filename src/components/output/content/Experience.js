@@ -17,7 +17,7 @@ const Experience = () => {
     <Wrapper>
       <Headline icon={<BusinessCenterIcon />} name='KOGEMUS' />
       {userData.experience.map((job, index) => (
-        <TimelineData key={index} data={job} index={index} />
+        <TimelineData key={job.id} data={job} index={index} />
       ))}
     </Wrapper>
   );

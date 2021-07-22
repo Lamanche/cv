@@ -17,36 +17,40 @@ const Headline = styled.h1`
 const Line = styled(Divider)`
   &.MuiDivider-root {
     height: 2px;
+    margin-bottom: 0.74rem;
     background-color: ${(props) => props.theme.lightBlue};
   }
 `;
 
-const Name = styled.h2`
-  margin-bottom: 0.3rem;
-  color: white;
-  font-size: 0.9rem;
+const Container = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;
 
-const Info = styled.p`
+const Language = styled.p`
   margin-top: 0;
   color: white;
   font-size: 0.9rem;
   font-weight: 300;
 `;
 
-const Contact = ({ data }) => {
+const Rating = styled.p`
+  margin-top: 0;
+  color: white;
+  font-size: 0.9rem;
+`;
+
+const Languages = ({ data }) => {
   return (
     <Wrapper>
-      <Headline>KONTAKT</Headline>
+      <Headline>KEELED</Headline>
       <Line />
-      <Name>Aadress</Name>
-      <Info>{data.personal.address}</Info>
-      <Name>Telefon</Name>
-      <Info>{data.personal.phone}</Info>
-      <Name>E-mail</Name>
-      <Info>{data.personal.email}</Info>
+      <Container>
+        <Language>English</Language>
+        <Rating>8/10</Rating>
+      </Container>
     </Wrapper>
   );
 };
 
-export default Contact;
+export default Languages;

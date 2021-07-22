@@ -12,7 +12,8 @@ const Wrapper = styled.div`
 
 const Info = styled.p`
 font-weight: 400;
-font-size: .99rem
+font-size: .99rem;
+color: ${props => props.theme.darkPurple};
 `
 
 const AboutMe = () => {

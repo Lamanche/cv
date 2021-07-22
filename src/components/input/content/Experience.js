@@ -10,7 +10,16 @@ const Wrapper = styled.div`
   text-align: center;
 `;
 
-const AddBtn = styled(Fab)``;
+const AddBtn = styled(Fab)`
+&.MuiFab-primary {
+    color: #fff;
+    background-color: ${props => props.theme.green};
+}
+
+&.MuiFab-primary:hover {
+    background-color: #76C903;
+}
+`;
 
 const Experience = () => {
   const [userData, setUserData] = useContext(DataContext);

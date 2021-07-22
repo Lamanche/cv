@@ -7,10 +7,15 @@ const Wrapper = styled.div`
   text-align: center;
 `;
 
-const Image = styled.img`
+const ImageContainer = styled.div`
   width: 100%;
-  height: 10rem;
+  height: 14rem;
   margin-bottom: 1.5rem;
+`;
+
+const Image = styled.img`
+  height: 100%;
+  width: 100%;
 `;
 
 const Name = styled.h1`
@@ -19,6 +24,7 @@ const Name = styled.h1`
   margin-bottom: 0;
   margin-top: 0;
   color: white;
+  font-size: 2.4rem;
 `;
 
 const JobTitle = styled.p`
@@ -26,13 +32,17 @@ const JobTitle = styled.p`
   margin-right: 2rem;
   margin-top: 0.5rem;
   margin-bottom: 0;
-  color: whitesmoke;
+  color: ${props => props.theme.lightBlue};
 `;
 
 const Header = ({ data }) => {
   return (
-    <Wrapper>
-      <Image src='' alt='profile-pic'></Image>
+    <Wrapper style={{ paddingTop: data.personal.image === "" && "2rem" }}>
+      {data.personal.image !== "" && (
+        <ImageContainer>
+          <Image src={data?.personal.image} alt='profile-pic'></Image>
+        </ImageContainer>
+      )}
       <Name>{data?.personal.name}</Name>
       <JobTitle>{data?.personal.occupation}</JobTitle>
     </Wrapper>

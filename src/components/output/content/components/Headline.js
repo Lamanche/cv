@@ -14,12 +14,14 @@ const Icon = styled.div`
 
 const NameWrapper = styled.div`
   width: 100%;
-  border-bottom: 2px solid green;
+  border-bottom: 2px solid ${props => props.theme.lightBlue};
 `;
 
 const Name = styled.h1`
-  font-size: 0.95rem;
+  font-size: 1rem;
+  font-weight: 500;
   margin: 0;
+  color: ${props => props.theme.darkPurple};
 `;
 
 const Headline = ({ icon, name }) => {

@@ -6,7 +6,8 @@ import Experience from "./content/Experience";
 import PersonalInfo from "./content/PersonalInfo";
 
 const Wrapper = styled.div`
-  margin-right: 3rem;
+width: 21cm;  
+margin-right: 3rem;
 `;
 
 const Line = styled(Divider)`

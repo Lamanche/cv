@@ -42,23 +42,27 @@ const RightSide = styled(TimelineContent)`
 const Title = styled.h1`
   margin: 0;
   font-size: 1rem;
+  color: ${(props) => props.theme.darkPurple};
 `;
 
 const Title2 = styled.h2`
   margin: 0;
   font-size: 1rem;
   font-weight: 400;
+  color: ${(props) => props.theme.darkPurple};
 `;
 
 const Year = styled.p`
   margin-top: 0.5rem;
   font-size: 0.9rem;
+  color: ${(props) => props.theme.darkPurple};
 `;
 
 const Description = styled.p`
   margin-top: 0.5rem;
   margin-bottom: 1.4rem;
   font-size: 0.9rem;
+  color: ${(props) => props.theme.darkPurple};
 `;
 
 const Dot = styled(TimelineDot)`
@@ -73,10 +77,17 @@ const Dot = styled(TimelineDot)`
     border-width: 2px;
     border-radius: 50%;
     margin-bottom: 8px;
+    background-color: ${(props) => props.theme.lightBlue};
   }
 `;
 
-const TimelineData = ({ data, index }) => {
+const Line = styled(TimelineConnector)`
+  &.MuiTimelineConnector-root {
+    background-color: ${(props) => props.theme.lightBlue};
+  }
+`;
+
+const TimelineData = ({ data }) => {
   return (
     <Wrapper>
       <TimeLine align='alternate'>
@@ -87,13 +98,11 @@ const TimelineData = ({ data, index }) => {
           </LeftSide>
           <TimelineSeparator>
             <Dot />
-            <TimelineConnector />
+            <Line />
           </TimelineSeparator>
           <RightSide>
             <Title2>{data?.company}</Title2>
-            <Description>
-              {data?.description}
-            </Description>
+            <Description>{data?.description}</Description>
           </RightSide>
         </TimelineItem>
       </TimeLine>
