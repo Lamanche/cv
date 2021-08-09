@@ -18,7 +18,7 @@ const InputField = styled(TextField)`
   }
 
   & .MuiInputBase-input:focus {
-    background-color: white;
+    //background-color: white;
   }
 `;
 
@@ -38,6 +38,7 @@ const AboutMe = () => {
         onChange={handleChange}
         multiline
         rows={4}
+        fullWidth
       />
     </Wrapper>
   );

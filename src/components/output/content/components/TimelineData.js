@@ -94,7 +94,7 @@ const TimelineData = ({ data }) => {
         <TimelineItem>
           <LeftSide>
             <Title>{data?.title}</Title>
-            <Year>{data?.year}</Year>
+            {data?.beginning && <Year>{data?.beginning} - {data?.ending || '...'}</Year>}
           </LeftSide>
           <TimelineSeparator>
             <Dot />

@@ -11,14 +11,16 @@ const Wrapper = styled.div`
 `;
 
 const AddBtn = styled(Fab)`
-&.MuiFab-primary {
-    color: #fff;
-    background-color: ${props => props.theme.green};
-}
+margin-bottom: 1rem !important;
 
-&.MuiFab-primary:hover {
-    background-color: #76C903;
-}
+  &.MuiFab-primary {
+    color: #fff;
+    background-color: ${(props) => props.theme.green};
+  }
+
+  &.MuiFab-primary:hover {
+    background-color: #76c903;
+  }
 `;
 
 const Experience = () => {
@@ -32,7 +34,8 @@ const Experience = () => {
         {
           id: uniqid(),
           title: "",
-          year: "",
+          beginning: null,
+          ending: null,
           company: "",
           description: "",
         },

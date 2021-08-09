@@ -9,13 +9,16 @@ const Wrapper = styled.div`
 
 const ImageContainer = styled.div`
   width: 100%;
-  height: 14rem;
+  //height: 14rem;
   margin-bottom: 1.5rem;
 `;
 
 const Image = styled.img`
-  height: 100%;
-  width: 100%;
+  //height: 100%;
+  max-height: 14rem;
+  min-width: 100%;
+  max-width: 100%;
+  object-fit: cover;
 `;
 
 const Name = styled.h1`
@@ -32,7 +35,7 @@ const JobTitle = styled.p`
   margin-right: 2rem;
   margin-top: 0.5rem;
   margin-bottom: 0;
-  color: ${props => props.theme.lightBlue};
+  color: ${(props) => props.theme.lightBlue};
 `;
 
 const Header = ({ data }) => {

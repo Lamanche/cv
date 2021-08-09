@@ -5,8 +5,16 @@ import OutputLeft from "./OutputLeft";
 import OutputRight from "./OutputRight";
 
 const Wrapper = styled.div`
-  width: 21cm;
+  min-width: 21cm;
   height: 29.7cm;
+
+  @media (max-width: 1024px) {
+    //min-width: 0;
+  }
+
+  @media (max-width: 768px) {
+    min-width: 100%;
+  }
 `;
 
 const PaperBg = styled(Card)`
