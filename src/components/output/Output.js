@@ -8,10 +8,6 @@ const Wrapper = styled.div`
   min-width: 21cm;
   height: 29.7cm;
 
-  @media (max-width: 1024px) {
-    //min-width: 0;
-  }
-
   @media (max-width: 768px) {
     min-width: 100%;
   }
@@ -25,7 +21,7 @@ const PaperBg = styled(Card)`
 
 const Output = () => {
   return (
-    <Wrapper>
+    <Wrapper id='divToPrint'>
       <PaperBg elevation={5}>
         <OutputLeft />
         <OutputRight />

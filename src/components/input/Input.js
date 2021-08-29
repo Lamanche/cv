@@ -35,7 +35,7 @@ const Line = styled(Divider)`
 
 const Input = () => {
   return (
-    <Wrapper>
+    <Wrapper >
       <PersonalInfo />
       <Line />
       <AboutMe />
