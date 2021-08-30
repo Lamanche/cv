@@ -1,7 +1,30 @@
-import { Button, Divider, TextField } from "@material-ui/core";
-import React from "react";
+import {
+  Button,
+  Collapse,
+  Divider,
+  IconButton,
+  TextField,
+  Tooltip,
+} from "@material-ui/core";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Years from "./Years";
+import ExpandLessIcon from "@material-ui/icons/ExpandLess";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+
+const PreviewWrapper = styled.div``;
+
+const PreviewContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const PreviewTitle = styled.h1`
+  margin: 0;
+  font-size: 1rem;
+`;
 
 const Wrapper = styled.div`
   min-width: 220px;
@@ -17,12 +40,8 @@ const InputContainer = styled.div`
     grid-template-columns: 1fr 1fr;
   }
 
-  @media (max-width: 1236px) {
+  @media (max-width: 425px) {
     grid-template-columns: 1fr;
-  }
-
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr 1fr;
   }
 `;
 
@@ -51,14 +70,23 @@ const Line = styled(Divider)`
   }
 `;
 
+const BtnContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
 const RemoveBtn = styled(Button)`
   margin-top: 0.8rem !important;
   margin-bottom: 1rem !important;
 `;
 
 const AddExperience = ({ index, userData, setUserData }) => {
+  const [isOpen, setIsOpen] = useState(true);
+  const [title, setTitle] = useState("");
+
   const handleChange = (e, index) => {
     const list = [...userData.experience];
+    e.target.name === "title" && setTitle(e.target.value);
     list[index][e.target.name] = e.target.value;
     setUserData((prevState) => ({
       ...prevState,
@@ -75,41 +103,75 @@ const AddExperience = ({ index, userData, setUserData }) => {
     }));
   };
 
+  const collapse = () => {
+    setIsOpen(false);
+  };
+
+  const expand = () => {
+    setIsOpen(true);
+  };
+
   return (
-    <Wrapper>
-      <InputContainer>
-        <InputField
-          label='Amet'
-          name='title'
-          variant='outlined'
-          onChange={(e) => handleChange(e, index)}
-        />
-        <InputField
-          label='Ettevõte'
-          name='company'
-          variant='outlined'
-          onChange={(e) => handleChange(e, index)}
-        />
-      </InputContainer>
-      <Years index={index} userData={userData} setUserData={setUserData} />
-      <InputField
-        label='Kirjeldus'
-        name='description'
-        variant='outlined'
-        onChange={(e) => handleChange(e, index)}
-        multiline
-        rows={4}
-        fullWidth
-      />
-      <RemoveBtn
-        variant='contained'
-        color='secondary'
-        onClick={() => removeExperience(index)}
-      >
-        Kustuta
-      </RemoveBtn>
-      <Line />
-    </Wrapper>
+    <>
+      <Collapse in={!isOpen}>
+        <PreviewWrapper>
+          <PreviewContainer>
+            <PreviewTitle>{title}</PreviewTitle>
+            <Tooltip title='Ava'>
+              <IconButton onClick={expand}>
+                <ExpandMoreIcon />
+              </IconButton>
+            </Tooltip>
+          </PreviewContainer>
+          <Line />
+        </PreviewWrapper>
+      </Collapse>
+
+      <Collapse in={isOpen}>
+        <Wrapper>
+          <InputContainer>
+            <InputField
+              label='Amet'
+              name='title'
+              variant='outlined'
+              onChange={(e) => handleChange(e, index)}
+            />
+            <InputField
+              label='Ettevõte'
+              name='company'
+              variant='outlined'
+              onChange={(e) => handleChange(e, index)}
+            />
+          </InputContainer>
+          <Years index={index} userData={userData} setUserData={setUserData} />
+          <InputField
+            label='Kirjeldus'
+            name='description'
+            variant='outlined'
+            onChange={(e) => handleChange(e, index)}
+            multiline
+            rows={4}
+            fullWidth
+          />
+
+          <BtnContainer>
+            <RemoveBtn
+              variant='contained'
+              color='secondary'
+              onClick={() => removeExperience(index)}
+            >
+              Kustuta
+            </RemoveBtn>
+            <Tooltip title='Sulge'>
+              <IconButton onClick={collapse}>
+                <ExpandLessIcon />
+              </IconButton>
+            </Tooltip>
+          </BtnContainer>
+          <Line />
+        </Wrapper>
+      </Collapse>
+    </>
   );
 };
 

@@ -62,21 +62,21 @@ const Years = ({ index, userData, setUserData }) => {
 
   const handleBeginning = (date) => {
     setSelectedDate((prevState) => ({ ...prevState, beginning: date }));
-    const list = [...userData.experience];
+    const list = [...userData.education];
     list[index].beginning = date?.toLocaleDateString();
     setUserData((prevState) => ({
       ...prevState,
-      experience: list,
+      education: list,
     }));
   };
 
   const handleEnding = (date) => {
     setSelectedDate((prevState) => ({ ...prevState, ending: date }));
-    const list = [...userData.experience];
+    const list = [...userData.education];
     list[index].ending = date?.toLocaleDateString() || "...";
     setUserData((prevState) => ({
       ...prevState,
-      experience: list,
+      education: list,
     }));
   };
 

@@ -2,6 +2,7 @@ import { Divider } from "@material-ui/core";
 import React from "react";
 import styled from "styled-components";
 import AboutMe from "./content/AboutMe";
+import Education from "./content/Education";
 import Experience from "./content/Experience";
 import PersonalInfo from "./content/PersonalInfo";
 
@@ -20,8 +21,9 @@ const Wrapper = styled.div`
     margin-right: 3rem;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1175px) {
     margin-right: 0;
+    margin-bottom: 3rem;
   }
 `;
 
@@ -35,12 +37,14 @@ const Line = styled(Divider)`
 
 const Input = () => {
   return (
-    <Wrapper >
+    <Wrapper>
       <PersonalInfo />
       <Line />
       <AboutMe />
       <Line />
       <Experience />
+      <Line />
+      <Education />
     </Wrapper>
   );
 };

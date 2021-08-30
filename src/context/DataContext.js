@@ -10,14 +10,8 @@ export let data = {
     email: "madis@gmail.com",
   },
   about: "",
-  experience: [
-    /*{
-      title: "Postiljon",
-      year: "2000-2014",
-      company: "Omniva",
-      description: "Kandsin posti laiali",
-    },*/
-  ],
+  experience: [],
+  education: [],
 };
 
 export const DataContext = createContext();

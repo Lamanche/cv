@@ -3,7 +3,7 @@ import AddIcon from "@material-ui/icons/Add";
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { DataContext } from "../../../context/DataContext";
-import AddExperience from "./components/AddExperience";
+import AddEducation from "./components/AddEducation";
 import uniqid from "uniqid";
 
 const Wrapper = styled.div`
@@ -23,21 +23,20 @@ const AddBtn = styled(Fab)`
   }
 `;
 
-const Experience = () => {
+const Education = () => {
   const [userData, setUserData] = useContext(DataContext);
 
-  const addExperience = () => {
+  const addEducation = () => {
     setUserData((prevState) => ({
       ...prevState,
-      experience: [
-        ...prevState.experience,
+      education: [
+        ...prevState.education,
         {
           id: uniqid(),
-          title: "",
+          school: "",
           beginning: null,
           ending: null,
-          company: "",
-          description: "",
+          degree: "",
         },
       ],
     }));
@@ -45,9 +44,9 @@ const Experience = () => {
 
   return (
     <Wrapper>
-      {userData.experience.map((ex, index) => {
+      {userData.education.map((ex, index) => {
         return (
-          <AddExperience
+          <AddEducation
             key={ex.id}
             index={index}
             userData={userData}
@@ -55,8 +54,8 @@ const Experience = () => {
           />
         );
       })}
-      <Tooltip title='Lisa kogemus'>
-        <AddBtn onClick={addExperience} color='primary' aria-label='add'>
+      <Tooltip title='Lisa kool'>
+        <AddBtn onClick={addEducation} color='primary' aria-label='add'>
           <AddIcon />
         </AddBtn>
       </Tooltip>
@@ -64,4 +63,4 @@ const Experience = () => {
   );
 };
 
-export default Experience;
+export default Education;

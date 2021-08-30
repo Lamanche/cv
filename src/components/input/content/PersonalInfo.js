@@ -1,4 +1,4 @@
-import { IconButton, TextField } from "@material-ui/core";
+import { IconButton, TextField, Tooltip } from "@material-ui/core";
 import { PhotoCamera } from "@material-ui/icons";
 import DeleteIcon from "@material-ui/icons/Delete";
 import React, { useContext } from "react";
@@ -27,12 +27,8 @@ const InputContainer = styled.div`
     grid-template-columns: 1fr 1fr;
   }
 
-  @media (max-width: 1236px) {
+  @media (max-width: 425px) {
     grid-template-columns: 1fr;
-  }
-
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr 1fr;
   }
 `;
 
@@ -88,7 +84,7 @@ const PersonalInfo = () => {
 
   return (
     <Wrapper>
-      <ImageContainer>
+      <ImageContainer id='back-to-top-anchor'>
         <input
           accept='image/*'
           style={{ display: "none" }}
@@ -97,17 +93,21 @@ const PersonalInfo = () => {
           onChange={uploadImage}
         />
         <label htmlFor='icon-button-file'>
-          <IconButton
-            color='primary'
-            aria-label='upload picture'
-            component='span'
-          >
-            <PhotoCamera />
-          </IconButton>
+          <Tooltip title='Lisa pilt'>
+            <IconButton
+              color='primary'
+              aria-label='upload picture'
+              component='span'
+            >
+              <PhotoCamera />
+            </IconButton>
+          </Tooltip>
         </label>
-        <IconButton onClick={deleteImage} aria-label='delete'>
-          <DeleteIcon />
-        </IconButton>
+        <Tooltip title='Kustuta pilt'>
+          <IconButton onClick={deleteImage} aria-label='delete'>
+            <DeleteIcon />
+          </IconButton>
+        </Tooltip>
       </ImageContainer>
       <InputContainer>
         <InputField

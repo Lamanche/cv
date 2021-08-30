@@ -49,7 +49,7 @@ function App() {
 
   const useStyles = makeStyles((theme) => ({
     root: {
-      position: 'fixed',
+      position: "fixed",
       bottom: theme.spacing(2),
       right: theme.spacing(2),
     },
@@ -67,9 +67,8 @@ function App() {
       const anchor = (event.target.ownerDocument || document).querySelector(
         "#back-to-top-anchor"
       );
-
       if (anchor) {
-        anchor.scrollIntoView({ top: 0, behavior: "smooth", block: "center" });
+        anchor.scrollIntoView({ behavior: "smooth", block: "center" });
       }
     };
 
@@ -91,7 +90,7 @@ function App() {
   return (
     <DataContext.Provider value={[userData, setUserData]}>
       <ThemeProvider theme={theme}>
-        <Wrapper id="back-to-top-anchor">
+        <Wrapper>
           <Input />
           <Output />
           <button onClick={printDocument}>Print PDF</button>
