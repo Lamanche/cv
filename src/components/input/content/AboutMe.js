@@ -8,17 +8,25 @@ const Wrapper = styled.div`
 `;
 
 const InputField = styled(TextField)`
+  & .MuiOutlinedInput-root {
+    background: whitesmoke;
+  }
+
+  & .MuiOutlinedInput-input {
+    padding: 8px 8px;
+  }
+
   & .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
     border-color: ${(props) => props.theme.green};
     border-width: 2px;
   }
 
-  & .MuiFormLabel-root.Mui-focused {
-    color: ${(props) => props.theme.darkPurple};
+  & .MuiInputLabel-outlined {
+    transform: translate(14px, 10px) scale(1);
   }
 
-  & .MuiInputBase-input:focus {
-    //background-color: white;
+  & .MuiFormLabel-root.Mui-focused {
+    color: ${(props) => props.theme.darkPurple};
   }
 `;
 

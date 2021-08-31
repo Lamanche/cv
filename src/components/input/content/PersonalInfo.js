@@ -33,6 +33,10 @@ const InputContainer = styled.div`
 `;
 
 const InputField = styled(TextField)`
+  & .MuiOutlinedInput-root {
+    background: whitesmoke;
+  }
+
   & .MuiOutlinedInput-input {
     padding: 8px 8px;
   }

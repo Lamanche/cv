@@ -32,6 +32,10 @@ const Picker = styled(MuiPickersUtilsProvider)`
 const DateInput = styled(KeyboardDatePicker)`
   margin-bottom: 0.8rem !important;
 
+  & .MuiOutlinedInput-root {
+    background: whitesmoke;
+  }
+
   & .MuiOutlinedInput-input {
     padding: 8px 8px;
   }

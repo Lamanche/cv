@@ -10,6 +10,13 @@ const Wrapper = styled.div`
   text-align: center;
 `;
 
+const Name = styled.h1`
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  color: ${(props) => props.theme.darkPurple};
+`;
+
 const AddBtn = styled(Fab)`
   margin-bottom: 1rem !important;
 
@@ -44,6 +51,7 @@ const Education = () => {
 
   return (
     <Wrapper>
+      <Name>HARIDUS</Name>
       {userData.education.map((ex, index) => {
         return (
           <AddEducation

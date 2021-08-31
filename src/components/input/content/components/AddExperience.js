@@ -19,6 +19,7 @@ const PreviewContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: ${(props) => props.theme.darkPurple};
 `;
 
 const PreviewTitle = styled.h1`
@@ -46,6 +47,10 @@ const InputContainer = styled.div`
 `;
 
 const InputField = styled(TextField)`
+  & .MuiOutlinedInput-root {
+    background: whitesmoke;
+  }
+
   & .MuiOutlinedInput-input {
     padding: 8px 8px;
   }
@@ -82,7 +87,7 @@ const RemoveBtn = styled(Button)`
 
 const AddExperience = ({ index, userData, setUserData }) => {
   const [isOpen, setIsOpen] = useState(true);
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState("...");
 
   const handleChange = (e, index) => {
     const list = [...userData.experience];

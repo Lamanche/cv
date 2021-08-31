@@ -1,9 +1,9 @@
+import styled from "styled-components";
+import React, { useContext } from "react";
+import AddLanguage from "./components/AddLanguage";
 import { Fab, Tooltip } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
-import React, { useContext } from "react";
-import styled from "styled-components";
 import { DataContext } from "../../../context/DataContext";
-import AddExperience from "./components/AddExperience";
 import uniqid from "uniqid";
 
 const Wrapper = styled.div`
@@ -30,21 +30,18 @@ const AddBtn = styled(Fab)`
   }
 `;
 
-const Experience = () => {
+const Languages = () => {
   const [userData, setUserData] = useContext(DataContext);
 
-  const addExperience = () => {
+  const addLanguage = () => {
     setUserData((prevState) => ({
       ...prevState,
-      experience: [
-        ...prevState.experience,
+      languages: [
+        ...prevState.languages,
         {
           id: uniqid(),
-          title: "",
-          beginning: null,
-          ending: null,
-          company: "",
-          description: "",
+          language: "",
+          level: "",
         },
       ],
     }));
@@ -52,10 +49,10 @@ const Experience = () => {
 
   return (
     <Wrapper>
-      <Name>KOGEMUS</Name>
-      {userData.experience.map((ex, index) => {
+      <Name>KEELED</Name>
+      {userData.languages.map((ex, index) => {
         return (
-          <AddExperience
+          <AddLanguage
             key={ex.id}
             index={index}
             userData={userData}
@@ -63,8 +60,9 @@ const Experience = () => {
           />
         );
       })}
-      <Tooltip title='Lisa kogemus'>
-        <AddBtn onClick={addExperience} color='primary' aria-label='add'>
+
+      <Tooltip title='Lisa keel'>
+        <AddBtn onClick={addLanguage} color='primary' aria-label='add'>
           <AddIcon />
         </AddBtn>
       </Tooltip>
@@ -72,4 +70,4 @@ const Experience = () => {
   );
 };
 
-export default Experience;
+export default Languages;

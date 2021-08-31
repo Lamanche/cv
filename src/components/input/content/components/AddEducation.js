@@ -1,7 +1,31 @@
-import { Button, Divider, TextField } from "@material-ui/core";
-import React from "react";
+import {
+  Button,
+  Collapse,
+  Divider,
+  IconButton,
+  TextField,
+  Tooltip,
+} from "@material-ui/core";
+import React, { useState } from "react";
 import styled from "styled-components";
 import EducationYears from "./EducationYears";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import ExpandLessIcon from "@material-ui/icons/ExpandLess";
+
+const PreviewWrapper = styled.div``;
+
+const PreviewContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: ${(props) => props.theme.darkPurple};
+`;
+
+const PreviewTitle = styled.h1`
+  margin: 0;
+  font-size: 1rem;
+`;
 
 const Wrapper = styled.div`
   min-width: 220px;
@@ -23,6 +47,10 @@ const InputContainer = styled.div`
 `;
 
 const InputField = styled(TextField)`
+  & .MuiOutlinedInput-root {
+    background: whitesmoke;
+  }
+
   & .MuiOutlinedInput-input {
     padding: 8px 8px;
   }
@@ -47,14 +75,23 @@ const Line = styled(Divider)`
   }
 `;
 
+const BtnContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
 const RemoveBtn = styled(Button)`
   margin-top: 0.8rem !important;
   margin-bottom: 1rem !important;
 `;
 
 const AddEducation = ({ index, userData, setUserData }) => {
+  const [isOpen, setIsOpen] = useState(true);
+  const [title, setTitle] = useState("...");
+
   const handleChange = (e, index) => {
     const list = [...userData.education];
+    e.target.name === "school" && setTitle(e.target.value);
     list[index][e.target.name] = e.target.value;
     setUserData((prevState) => ({
       ...prevState,
@@ -71,32 +108,68 @@ const AddEducation = ({ index, userData, setUserData }) => {
     }));
   };
 
+  const collapse = () => {
+    setIsOpen(false);
+  };
+
+  const expand = () => {
+    setIsOpen(true);
+  };
+
   return (
-    <Wrapper>
-      <InputContainer>
-        <InputField
-          label='Kool'
-          name='school'
-          variant='outlined'
-          onChange={(e) => handleChange(e, index)}
-        />
-        <InputField
-          label='Kraad'
-          name='degree'
-          variant='outlined'
-          onChange={(e) => handleChange(e, index)}
-        />
-      </InputContainer>
-      <EducationYears index={index} userData={userData} setUserData={setUserData} />
-      <RemoveBtn
-        variant='contained'
-        color='secondary'
-        onClick={() => removeEducation(index)}
-      >
-        Kustuta
-      </RemoveBtn>
-      <Line />
-    </Wrapper>
+    <>
+      <Collapse in={!isOpen}>
+        <PreviewWrapper>
+          <PreviewContainer>
+            <PreviewTitle>{title}</PreviewTitle>
+            <Tooltip title='Ava'>
+              <IconButton onClick={expand}>
+                <ExpandMoreIcon />
+              </IconButton>
+            </Tooltip>
+          </PreviewContainer>
+          <Line />
+        </PreviewWrapper>
+      </Collapse>
+      <Collapse in={isOpen}>
+        <Wrapper>
+          <InputContainer>
+            <InputField
+              label='Kool'
+              name='school'
+              variant='outlined'
+              onChange={(e) => handleChange(e, index)}
+            />
+            <InputField
+              label='Kraad'
+              name='degree'
+              variant='outlined'
+              onChange={(e) => handleChange(e, index)}
+            />
+          </InputContainer>
+          <EducationYears
+            index={index}
+            userData={userData}
+            setUserData={setUserData}
+          />
+          <BtnContainer>
+            <RemoveBtn
+              variant='contained'
+              color='secondary'
+              onClick={() => removeEducation(index)}
+            >
+              Kustuta
+            </RemoveBtn>
+            <Tooltip title='Sulge'>
+              <IconButton onClick={collapse}>
+                <ExpandLessIcon />
+              </IconButton>
+            </Tooltip>
+          </BtnContainer>
+          <Line />
+        </Wrapper>
+      </Collapse>
+    </>
   );
 };
 

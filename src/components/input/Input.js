@@ -4,6 +4,7 @@ import styled from "styled-components";
 import AboutMe from "./content/AboutMe";
 import Education from "./content/Education";
 import Experience from "./content/Experience";
+import Languages from "./content/Languages";
 import PersonalInfo from "./content/PersonalInfo";
 
 const Wrapper = styled.div`
@@ -41,6 +42,8 @@ const Input = () => {
       <PersonalInfo />
       <Line />
       <AboutMe />
+      <Line />
+      <Languages />
       <Line />
       <Experience />
       <Line />

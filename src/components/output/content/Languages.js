@@ -45,10 +45,14 @@ const Languages = ({ data }) => {
     <Wrapper>
       <Headline>KEELED</Headline>
       <Line />
-      <Container>
-        <Language>English</Language>
-        <Rating>8/10</Rating>
-      </Container>
+      {data.languages.map((language) => {
+        return (
+          <Container>
+            <Language>{language.language}</Language>
+            <Rating>{language.level}</Rating>
+          </Container>
+        );
+      })}
     </Wrapper>
   );
 };

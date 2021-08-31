@@ -10,6 +10,7 @@ export let data = {
     email: "madis@gmail.com",
   },
   about: "",
+  languages: [],
   experience: [],
   education: [],
 };
