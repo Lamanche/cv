@@ -43,6 +43,10 @@ import {
     margin: 0;
     font-size: 1rem;
     color: ${(props) => props.theme.darkPurple};
+
+    @media (max-width: 880px) {
+        font-size: 1.818vw;
+      }
   `;
   
   const Title2 = styled.h2`
@@ -50,12 +54,21 @@ import {
     font-size: 1rem;
     font-weight: 400;
     color: ${(props) => props.theme.darkPurple};
+
+    @media (max-width: 880px) {
+        font-size: 1.818vw;
+      }
   `;
   
   const Year = styled.p`
     margin-top: 0.5rem;
     font-size: 0.9rem;
     color: ${(props) => props.theme.darkPurple};
+
+    @media (max-width: 880px) {
+        font-size: 1.636vw;
+        margin-top: 0.909vw; 
+      }
   `;
   
   const Description = styled.p`
@@ -63,6 +76,12 @@ import {
     margin-bottom: 1.4rem;
     font-size: 0.9rem;
     color: ${(props) => props.theme.darkPurple};
+
+    @media (max-width: 880px) {
+        font-size: 1.636vw;
+        margin-top: 0.909vw; 
+        margin-bottom: 2.545vw; 
+      }
   `;
   
   const Dot = styled(TimelineDot)`

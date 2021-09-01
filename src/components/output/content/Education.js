@@ -8,11 +8,15 @@ import EducationData from "./components/EducationData";
 const Wrapper = styled.div`
   width: 100%;
   margin-bottom: 2rem;
+
+  @media (max-width: 880px) {
+    margin-bottom: 3.636vw;
+  }
 `;
 
 const Education = () => {
   const [userData] = useContext(DataContext);
-  
+
   return (
     <Wrapper>
       <Headline icon={<SchoolIcon />} name='HARIDUS' />

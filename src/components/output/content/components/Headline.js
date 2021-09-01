@@ -6,6 +6,10 @@ const Wrapper = styled.div`
   margin-bottom: 1rem;
   display: flex;
   align-items: center;
+
+  @media (max-width: 880px) {
+    margin-bottom: 1.818vw;
+  }
 `;
 
 const Icon = styled.div`
@@ -14,14 +18,18 @@ const Icon = styled.div`
 
 const NameWrapper = styled.div`
   width: 100%;
-  border-bottom: 2px solid ${props => props.theme.lightBlue};
+  border-bottom: 2px solid ${(props) => props.theme.lightBlue};
 `;
 
 const Name = styled.h1`
   font-size: 1rem;
   font-weight: 500;
   margin: 0;
-  color: ${props => props.theme.darkPurple};
+  color: ${(props) => props.theme.darkPurple};
+
+  @media (max-width: 880px) {
+    font-size: 1.818vw;
+  }
 `;
 
 const Headline = ({ icon, name }) => {

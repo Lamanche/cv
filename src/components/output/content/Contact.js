@@ -5,6 +5,11 @@ import styled from "styled-components";
 const Wrapper = styled.div`
   padding: 0 2rem;
   margin-bottom: 2rem;
+
+  @media (max-width: 880px) {
+    padding: 0 3.636vw;
+    margin-bottom: 3.636vw;
+  }
 `;
 
 const Headline = styled.h1`
@@ -12,6 +17,11 @@ const Headline = styled.h1`
   color: white;
   font-size: 1rem;
   font-weight: 500;
+
+  @media (max-width: 880px) {
+    font-size: 1.818vw;
+    margin-bottom: 0.909vw;
+  }
 `;
 
 const Line = styled(Divider)`
@@ -25,6 +35,11 @@ const Name = styled.h2`
   margin-bottom: 0.3rem;
   color: white;
   font-size: 0.9rem;
+
+  @media (max-width: 880px) {
+    font-size: 1.636vw;
+    margin-bottom: 0.545vw;
+  }
 `;
 
 const Info = styled.p`
@@ -32,6 +47,10 @@ const Info = styled.p`
   color: white;
   font-size: 0.9rem;
   font-weight: 300;
+
+  @media (max-width: 880px) {
+    font-size: 1.636vw;
+  }
 `;
 
 const Contact = ({ data }) => {

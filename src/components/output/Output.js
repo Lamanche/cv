@@ -8,8 +8,9 @@ const Wrapper = styled.div`
   min-width: 21cm;
   height: 29.7cm;
 
-  @media (max-width: 768px) {
-    min-width: 100%;
+  @media (max-width: 880px) {
+    min-width: 8cm;
+    width: 100%;
   }
 `;
 

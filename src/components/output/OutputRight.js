@@ -10,6 +10,10 @@ const Wrapper = styled.div`
   box-sizing: border-box;
   padding 3.3rem 2rem 2.2rem 1.5rem;
   background-color: white;
+
+  @media (max-width: 880px) {
+    padding: 6.000vw 3.636vw 4vw 2.727vw;  
+  }
 `;
 
 const OutputRight = () => {

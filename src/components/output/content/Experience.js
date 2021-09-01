@@ -8,6 +8,10 @@ import TimelineData from "./components/TimelineData";
 const Wrapper = styled.div`
   width: 100%;
   margin-bottom: 2rem;
+
+  @media (max-width: 880px) {
+    margin-bottom: 3.636vw;
+  }
 `;
 
 const Experience = () => {

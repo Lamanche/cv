@@ -135,6 +135,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <Wrapper>
           <Input />
+
           <Output />
 
           <DownloadBtn>
