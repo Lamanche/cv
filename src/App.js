@@ -56,8 +56,8 @@ function App() {
     const input = document.getElementById("divToPrint");
     html2canvas(input).then((canvas) => {
       const imgData = canvas.toDataURL("image/png");
-      const pdf = new jsPDF();
-      pdf.addImage(imgData, "JPEG", 0, 0);
+      const pdf = new jsPDF("p", "mm", "a4");
+      pdf.addImage(imgData, "JPEG", 0, 0, 210, 297);
       // pdf.output('dataurlnewwindow');
       pdf.save("CV.pdf");
     });
