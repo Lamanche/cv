@@ -19,10 +19,12 @@ import Zoom from "@material-ui/core/Zoom";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import PropTypes from "prop-types";
 import { ReactComponent as DownloadPdf } from "./images/pdf-download.svg";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 const Wrapper = styled.div`
   min-height: 100vh;
-  padding: 3rem;
+  padding: 1rem 3rem;
   box-sizing: border-box;
   display: flex;
   justify-content: space-around;
@@ -134,9 +136,10 @@ function App() {
     <DataContext.Provider value={[userData, setUserData]}>
       <ThemeProvider theme={theme}>
         <Wrapper>
+          <Header />
           <Input />
-
           <Output />
+          <Footer />
 
           <DownloadBtn>
             <Tooltip title='Lae CV alla'>
@@ -155,6 +158,7 @@ function App() {
               <KeyboardArrowUpIcon />
             </Fab>
           </ScrollTop>
+
           <ScrollToDocument>
             <Fab color='secondary' size='small' aria-label='scroll to document'>
               <DescriptionIcon />
