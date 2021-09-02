@@ -14,12 +14,20 @@ const Wrapper = styled.div`
   }
 `;
 
+const Icon = styled(BusinessCenterIcon)`
+  @media (max-width: 880px) {
+    &.MuiSvgIcon-root {
+      font-size: 2.727vw;
+    }
+  }
+`;
+
 const Experience = () => {
   const [userData] = useContext(DataContext);
 
   return (
     <Wrapper>
-      <Headline icon={<BusinessCenterIcon />} name='KOGEMUS' />
+      <Headline icon={<Icon />} name='KOGEMUS' />
       {userData.experience.map((job, index) => (
         <TimelineData key={job.id} data={job} index={index} />
       ))}

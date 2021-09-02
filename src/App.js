@@ -26,17 +26,21 @@ const Wrapper = styled.div`
   min-height: 100vh;
   padding: 1rem 3rem;
   box-sizing: border-box;
+
+  background-color: ${(props) => props.theme.background};
+
+  @media (max-width: 425px) {
+    padding: 1rem;
+  }
+`;
+
+const ContentWrapper = styled.div`
   display: flex;
   justify-content: space-around;
-  background-color: ${(props) => props.theme.background};
 
   @media (max-width: 1175px) {
     flex-direction: column;
     align-items: center;
-  }
-
-  @media (max-width: 425px) {
-    padding: 1rem;
   }
 `;
 
@@ -137,8 +141,10 @@ function App() {
       <ThemeProvider theme={theme}>
         <Wrapper>
           <Header />
-          <Input />
-          <Output />
+          <ContentWrapper>
+            <Input />
+            <Output />
+          </ContentWrapper>
           <Footer />
 
           <DownloadBtn>

@@ -30,6 +30,12 @@ const Line = styled(Divider)`
     margin-bottom: 0.74rem;
     background-color: ${(props) => props.theme.lightBlue};
   }
+
+  @media (max-width: 880px) {
+    &.MuiDivider-root {
+      height: 0.227vw;
+    }
+  } ;
 `;
 
 const Container = styled.div`

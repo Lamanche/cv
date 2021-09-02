@@ -29,6 +29,13 @@ const Line = styled(Divider)`
     height: 2px;
     background-color: ${(props) => props.theme.lightBlue};
   }
+
+  @media (max-width: 880px) {
+    &.MuiDivider-root {
+      height: 0.227vw;
+      
+    }
+  };
 `;
 
 const Name = styled.h2`

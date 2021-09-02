@@ -10,7 +10,7 @@ const Wrapper = styled.div`
   overflow: hidden;
 
   @media (max-width: 880px) {
-    margin-bottom: 1.818vw; 
+    margin-bottom: 1.818vw;
   }
 `;
 
@@ -20,7 +20,15 @@ const Info = styled.p`
   color: ${(props) => props.theme.darkPurple};
 
   @media (max-width: 880px) {
-    font-size: 1.800vw;
+    font-size: 1.8vw;
+  }
+`;
+
+const Icon = styled(AccountCircleIcon)`
+  @media (max-width: 880px) {
+    &.MuiSvgIcon-root {
+      font-size: 2.727vw;
+    }
   }
 `;
 
@@ -29,7 +37,7 @@ const AboutMe = () => {
 
   return (
     <Wrapper>
-      <Headline icon={<AccountCircleIcon />} name='MINUST' />
+      <Headline icon={<Icon />} name='MINUST' />
       <Info>{userData.about}</Info>
     </Wrapper>
   );

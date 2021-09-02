@@ -14,12 +14,20 @@ const Wrapper = styled.div`
   }
 `;
 
+const Icon = styled(SchoolIcon)`
+  @media (max-width: 880px) {
+    &.MuiSvgIcon-root {
+      font-size: 2.727vw;
+    }
+  }
+`;
+
 const Education = () => {
   const [userData] = useContext(DataContext);
 
   return (
     <Wrapper>
-      <Headline icon={<SchoolIcon />} name='HARIDUS' />
+      <Headline icon={<Icon />} name='HARIDUS' />
       {userData.education.map((job, index) => (
         <EducationData key={job.id} data={job} index={index} />
       ))}

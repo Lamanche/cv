@@ -14,11 +14,19 @@ const Wrapper = styled.div`
 
 const Icon = styled.div`
   margin-right: 0.5rem;
+
+  @media (max-width: 880px) {
+    margin-right: 0.909vw;
+  }
 `;
 
 const NameWrapper = styled.div`
   width: 100%;
   border-bottom: 2px solid ${(props) => props.theme.lightBlue};
+
+  @media (max-width: 880px) {
+    border-bottom: 0.227vw solid ${(props) => props.theme.lightBlue};
+  }
 `;
 
 const Name = styled.h1`
