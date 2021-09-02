@@ -1,7 +1,8 @@
 import { IconButton, TextField, Tooltip } from "@material-ui/core";
 import { PhotoCamera } from "@material-ui/icons";
+import DoneIcon from "@material-ui/icons/Done";
 import DeleteIcon from "@material-ui/icons/Delete";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import { DataContext } from "../../../context/DataContext";
 
@@ -57,6 +58,14 @@ const InputField = styled(TextField)`
 
 const PersonalInfo = () => {
   const [userData, setUserData] = useContext(DataContext);
+  const [done, setDone] = useState(false);
+
+  const showDone = () => {
+    setDone(true);
+    setTimeout(() => {
+      setDone(false);
+    }, 1000);
+  };
 
   const handleChange = (e) => {
     setUserData((prevState) => ({
@@ -84,11 +93,12 @@ const PersonalInfo = () => {
         image: "",
       },
     }));
+    userData.personal.image !== "" && showDone();
   };
 
   return (
-    <Wrapper>
-      <ImageContainer id='back-to-top-anchor'>
+    <Wrapper id='back-to-top-anchor'>
+      <ImageContainer>
         <input
           accept='image/*'
           style={{ display: "none" }}
@@ -109,7 +119,7 @@ const PersonalInfo = () => {
         </label>
         <Tooltip title='Kustuta pilt'>
           <IconButton onClick={deleteImage} aria-label='delete'>
-            <DeleteIcon />
+            {done ? <DoneIcon /> : <DeleteIcon />}
           </IconButton>
         </Tooltip>
       </ImageContainer>

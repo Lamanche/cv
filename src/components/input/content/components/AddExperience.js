@@ -6,7 +6,7 @@ import {
   TextField,
   Tooltip,
 } from "@material-ui/core";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import Years from "./Years";
 import ExpandLessIcon from "@material-ui/icons/ExpandLess";
@@ -51,6 +51,10 @@ const InputField = styled(TextField)`
     background: whitesmoke;
   }
 
+  & .MuiOutlinedInput-multiline {
+    padding: 10px 14px;
+  }
+
   & .MuiOutlinedInput-input {
     padding: 8px 8px;
   }
@@ -88,6 +92,15 @@ const RemoveBtn = styled(Button)`
 const AddExperience = ({ index, userData, setUserData }) => {
   const [isOpen, setIsOpen] = useState(true);
   const [title, setTitle] = useState("...");
+  const collapsedRef = useRef();
+  const expandedRef = useRef();
+
+  useEffect(() => {
+    expandedRef.current.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+    });
+  }, []);
 
   const handleChange = (e, index) => {
     const list = [...userData.experience];
@@ -110,10 +123,18 @@ const AddExperience = ({ index, userData, setUserData }) => {
 
   const collapse = () => {
     setIsOpen(false);
+    collapsedRef.current.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+    });
   };
 
   const expand = () => {
     setIsOpen(true);
+    expandedRef.current.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+    });
   };
 
   return (
@@ -121,7 +142,7 @@ const AddExperience = ({ index, userData, setUserData }) => {
       <Collapse in={!isOpen}>
         <PreviewWrapper>
           <PreviewContainer>
-            <PreviewTitle>{title}</PreviewTitle>
+            <PreviewTitle ref={collapsedRef}>{title}</PreviewTitle>
             <Tooltip title='Ava'>
               <IconButton onClick={expand}>
                 <ExpandMoreIcon />
@@ -133,7 +154,7 @@ const AddExperience = ({ index, userData, setUserData }) => {
       </Collapse>
 
       <Collapse in={isOpen}>
-        <Wrapper>
+        <Wrapper ref={expandedRef}>
           <InputContainer>
             <InputField
               label='Amet'
@@ -155,7 +176,7 @@ const AddExperience = ({ index, userData, setUserData }) => {
             variant='outlined'
             onChange={(e) => handleChange(e, index)}
             multiline
-            rows={4}
+            rows={5}
             fullWidth
           />
 

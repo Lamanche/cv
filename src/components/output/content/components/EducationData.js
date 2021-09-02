@@ -121,7 +121,7 @@ import {
             </TimelineSeparator>
             <RightSide>
               <Title2>{data?.degree}</Title2>
-              <Description>{data?.description}</Description>
+              <Description>{data?.info}</Description>
             </RightSide>
           </TimelineItem>
         </TimeLine>

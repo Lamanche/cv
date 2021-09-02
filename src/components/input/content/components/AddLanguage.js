@@ -9,11 +9,11 @@ import {
 } from "@material-ui/core";
 import CloseIcon from "@material-ui/icons/Close";
 import styled from "styled-components";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
 const Wrapper = styled.div`
   margin-bottom: 0.8rem;
-  margin-top: -.4rem;
+  margin-top: -0.4rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 0.8rem;
@@ -76,6 +76,15 @@ const SelectForm = styled(FormControl)`
 `;
 
 const AddLanguage = ({ index, userData, setUserData }) => {
+  const ref = useRef();
+
+  useEffect(() => {
+    ref.current.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+    });
+  }, []);
+
   const handleChange = (e, index) => {
     const list = [...userData.languages];
     list[index][e.target.name] = e.target.value;
@@ -95,7 +104,7 @@ const AddLanguage = ({ index, userData, setUserData }) => {
   };
 
   return (
-    <Wrapper>
+    <Wrapper ref={ref}>
       <InputField
         label='Keel'
         name='language'
@@ -111,7 +120,6 @@ const AddLanguage = ({ index, userData, setUserData }) => {
             name='level'
             onChange={(e) => handleChange(e, index)}
             label='Level'
-            //native
           >
             <MenuItem value={"Emakeel"}>Emakeel</MenuItem>
             <MenuItem value={"Algaja"}>Algaja</MenuItem>

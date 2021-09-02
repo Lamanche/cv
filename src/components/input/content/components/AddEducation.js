@@ -2,11 +2,15 @@ import {
   Button,
   Collapse,
   Divider,
+  FormControl,
   IconButton,
+  InputLabel,
+  MenuItem,
+  Select,
   TextField,
   Tooltip,
 } from "@material-ui/core";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import EducationYears from "./EducationYears";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
@@ -51,6 +55,10 @@ const InputField = styled(TextField)`
     background: whitesmoke;
   }
 
+  & .MuiOutlinedInput-multiline {
+    padding: 10px 14px;
+  }
+
   & .MuiOutlinedInput-input {
     padding: 8px 8px;
   }
@@ -85,9 +93,43 @@ const RemoveBtn = styled(Button)`
   margin-bottom: 1rem !important;
 `;
 
+const SelectForm = styled(FormControl)`
+  width: 100%;
+
+  & .MuiOutlinedInput-root {
+    background: whitesmoke;
+  }
+
+  & .MuiOutlinedInput-input {
+    padding: 8px 8px;
+  }
+
+  & .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: ${(props) => props.theme.green};
+    border-width: 2px;
+  }
+
+  & .MuiInputLabel-outlined {
+    transform: translate(14px, 10px) scale(1);
+  }
+
+  & .MuiFormLabel-root.Mui-focused {
+    color: ${(props) => props.theme.darkPurple};
+  }
+`;
+
 const AddEducation = ({ index, userData, setUserData }) => {
   const [isOpen, setIsOpen] = useState(true);
   const [title, setTitle] = useState("...");
+  const collapsedRef = useRef();
+  const expandedRef = useRef();
+
+  useEffect(() => {
+    expandedRef.current.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+    });
+  }, []);
 
   const handleChange = (e, index) => {
     const list = [...userData.education];
@@ -110,10 +152,18 @@ const AddEducation = ({ index, userData, setUserData }) => {
 
   const collapse = () => {
     setIsOpen(false);
+    collapsedRef.current.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+    });
   };
 
   const expand = () => {
     setIsOpen(true);
+    expandedRef.current.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+    });
   };
 
   return (
@@ -121,7 +171,7 @@ const AddEducation = ({ index, userData, setUserData }) => {
       <Collapse in={!isOpen}>
         <PreviewWrapper>
           <PreviewContainer>
-            <PreviewTitle>{title}</PreviewTitle>
+            <PreviewTitle ref={collapsedRef}>{title}</PreviewTitle>
             <Tooltip title='Ava'>
               <IconButton onClick={expand}>
                 <ExpandMoreIcon />
@@ -131,8 +181,9 @@ const AddEducation = ({ index, userData, setUserData }) => {
           <Line />
         </PreviewWrapper>
       </Collapse>
+
       <Collapse in={isOpen}>
-        <Wrapper>
+        <Wrapper ref={expandedRef}>
           <InputContainer>
             <InputField
               label='Kool'
@@ -140,17 +191,40 @@ const AddEducation = ({ index, userData, setUserData }) => {
               variant='outlined'
               onChange={(e) => handleChange(e, index)}
             />
-            <InputField
-              label='Kraad'
-              name='degree'
-              variant='outlined'
-              onChange={(e) => handleChange(e, index)}
-            />
+
+            <SelectForm variant='outlined'>
+              <InputLabel id='level'>Tase</InputLabel>
+              <Select
+                labelId='level'
+                id='demo-simple-select-outlined'
+                name='degree'
+                onChange={(e) => handleChange(e, index)}
+                label='Tase'
+              >
+                <MenuItem value={"Algharidus"}>Algharidus</MenuItem>
+                <MenuItem value={"Põhiharidus"}>Põhiharidus</MenuItem>
+                <MenuItem value={"Keskharidus"}>Keskharidus</MenuItem>
+                <MenuItem value={"Kutseharidus"}>Kutseharidus</MenuItem>
+                <MenuItem value={"Bakalaureus"}>Bakalaureus</MenuItem>
+                <MenuItem value={"Magister"}>Magister</MenuItem>
+                <MenuItem value={"Doktor"}>Doktor</MenuItem>
+                <MenuItem value={"Lõpetamata"}>Lõpetamata</MenuItem>
+              </Select>
+            </SelectForm>
           </InputContainer>
           <EducationYears
             index={index}
             userData={userData}
             setUserData={setUserData}
+          />
+          <InputField
+            label='Eriala / lisainfo'
+            name='info'
+            variant='outlined'
+            onChange={(e) => handleChange(e, index)}
+            multiline
+            rows={5}
+            fullWidth
           />
           <BtnContainer>
             <RemoveBtn

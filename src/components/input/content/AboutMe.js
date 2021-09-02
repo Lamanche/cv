@@ -12,6 +12,10 @@ const InputField = styled(TextField)`
     background: whitesmoke;
   }
 
+  & .MuiOutlinedInput-multiline {
+    padding: 10px 14px;
+  }
+
   & .MuiOutlinedInput-input {
     padding: 8px 8px;
   }
@@ -45,7 +49,7 @@ const AboutMe = () => {
         variant='outlined'
         onChange={handleChange}
         multiline
-        rows={4}
+        rows={5}
         fullWidth
       />
     </Wrapper>

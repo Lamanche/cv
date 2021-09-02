@@ -44,6 +44,7 @@ const Education = () => {
           beginning: null,
           ending: null,
           degree: "",
+          info: "",
         },
       ],
     }));
