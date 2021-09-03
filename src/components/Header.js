@@ -2,7 +2,7 @@ import { Divider } from "@material-ui/core";
 import React from "react";
 import styled from "styled-components";
 
-const Wrapper = styled.div`
+const Wrapper = styled.header`
   width: 100%;
 `;
 
@@ -10,8 +10,8 @@ const Headline = styled.h1`
   font-weight: 500;
   color: rgba(0, 0, 0, 0.54);
 
-  @media (max-width: 880px) {
-    font-size: 3.636vw;
+  @media (max-width: 425px) {
+    font-size: 1.4rem;
   }
 `;
 
