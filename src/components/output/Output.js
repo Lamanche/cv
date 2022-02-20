@@ -4,7 +4,7 @@ import styled from "styled-components";
 import OutputLeft from "./OutputLeft";
 import OutputRight from "./OutputRight";
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   min-width: 21cm;
   height: 29.7cm;
 

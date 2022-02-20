@@ -7,7 +7,7 @@ import Experience from "./content/Experience";
 import Languages from "./content/Languages";
 import PersonalInfo from "./content/PersonalInfo";
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   min-width: 220px;
   width: 100%;
   margin-right: 3rem;

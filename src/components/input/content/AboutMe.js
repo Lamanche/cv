@@ -45,7 +45,7 @@ const AboutMe = () => {
   return (
     <Wrapper>
       <InputField
-        label='Iseloomustus'
+        label='Minust'
         name='about'
         variant='outlined'
         onChange={handleChange}

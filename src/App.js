@@ -40,7 +40,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const ContentWrapper = styled.div`
+const ContentWrapper = styled.main`
   display: flex;
   justify-content: space-around;
 
